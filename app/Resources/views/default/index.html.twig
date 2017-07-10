@@ -1,0 +1,205 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   
+     <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 ">
+                    <img class="img-responsive logo" src="{{ asset('img/logo.png')}}">
+                    
+                </div>                                
+            </div>    
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 ">
+                    <h1 class="text-center"> Improsmečka</h1>
+                    <p class="text-center">Městská hra</p>
+                    
+                </div>                                
+            </div>    
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div >
+                        <h2>Pořadí agentů</h2>
+                        <table class=table>
+                            <thead>
+                                <tr>
+                                    <td>Pořadí</td><td>Jméno</td><td>Body</td>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 <tr>
+                                     <td>1.</td><td><a href="pedro.html">Pedro</a></td><td>103</td></tr>
+                                 <tr>   <td>2.</td><td>Diego</td><td>96</td>
+                                    </tr>
+                                 <tr> <td>3.</td><td>Pedro</td><td>51</td>
+                                    </tr>
+                                 <tr> <td>4.</td><td>Elvira</td><td>20</td>
+                                   </tr>
+                                 <tr>  <td>5.</td><td>Hero</td><td>1</td>
+                                    </tr>
+                                 <tr> <td>5.</td><td>Quido</td><td>1</td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                    
+                    <div>
+                        <h2>Příběh</h2>
+                        <p>Toho dne bylo v noře veselo. Přišel první vrh - roztomilá liščátka a vydřátka. Děcka rostla, učily se ulovit si potravu, stopovat za svítání i za šírání, až jednou přišel ten velký den.
+                            “Už jste dost staré,” řekla máma liška,”půjdeme se podívat na improvizace.”</p><p>
+Děti křičely jůů a jupí, protože o impru od rodičů moc slyšely. Pečlivě si ulízaly kožíšky do čista a večer, ó to vám bylo radosti a pozdvižení. 
+Za chvíli už byla celá smečka stará natolik, že mohli chodit na představení všichni sami. 
+To vám bylo radosti a kočkování, když se dvě děcka náhodou potkala na stejném místě.
+</p>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                    <h2>Celkové skóre</h2>
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6"><img class="img-responsive" src="{{ asset('img/vydra.png')}}"><p class="text-center" >99</p> </div>
+                        
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6"><img class="img-responsive" src="{{ asset('img/liska.png')}}"> <p class="text-center" >99</p></div>
+                    </div>
+                    <div>
+                        <h2>Poslední úlovky</h2> 
+                        
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="http://lorempixel.com/400/200/sports/1" alt="Chania">
+      <div class="carousel-caption">
+          <h3>Agent <a href="pedro.html">Pedro </a>@ Paleťáci vs Lísky (10b)</h3>
+        <p>Foto ze zápasu</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="http://lorempixel.com/400/200/sports/2" alt="Chicago">
+      <div class="carousel-caption">
+        <h3>Agent Quido @ Paleťáci vs Kopr (2b)</h3>
+        <p>Přistižený agent</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="http://lorempixel.com/400/200/sports/3" alt="New York">
+      <div class="carousel-caption">
+        <h3>Agent Benjo @ Paleťáci vs Kiš (6b)</h3>
+        <p>Přiťižený agent</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+                        
+                        
+                    </div>
+                    <div>
+                        <h2>Poslední aktuality</h2>
+                        <p><strong>1. prosinec 2017</strong> Za adventní akce dostáváš 2*tolik bodů </p>
+                        <p><strong>1. září 2017</strong> Spuštění hry do ostrého provozu! </p>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <h2>Nejdravější agenti</h2>
+                      <table class=table>
+                            <thead>
+                                <tr>
+                                    <td>Pořadí</td><td>Jméno</td><td>Dravost</td>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 <tr>
+                                     <td>1.</td><td><a href="pedro.html">Pedro</a></td><td>5.1</td></tr>
+                                 <tr>   <td>2.</td><td>Diego</td><td>4.2</td>
+                                    </tr>
+                                 <tr> <td>3.</td><td>wer</td><td>3.1</td>
+                                    </tr>
+                                 <tr> <td>4.</td><td>Elvira</td><td>2.2</td>
+                                   </tr>
+                                 <tr>  <td>5.</td><td>Hero</td><td>1.5</td>
+                                    </tr>
+                                 <tr> <td>6.</td><td>Quido</td><td>1.4</td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                        
+                        <p>Skóre dravosti je vyšší pro agenty činné v poslední době. Přesná výpočetní  funkce není zatím určena. </p>
+                    </div>        
+                    
+                    <div><h2>Pravidla</h2>
+                        <p>Pojď se převtělit do jedno z liščat či vydřat.
+Cílem je hru si užít. Podváděním podvedeš jen sebe. Buď benevolentní ve výkladu pravidel.Užívej si a klidně navrhuj další pravidla!</p>
+                        <h3>Staň se agentem</h3>
+<p>Registruj se na smecka.improliga.cz, vymysli své hráčské jméno (třeba Pedro) a převezmi si hráčský balíček - placku V, placku L a placku Improsmečka (tou můžeš veřejně proklamovat svou příslušnost ke hře).
+    Hráčské balíčky distribuuje ????, pokud na hru hodně spěcháš, můžeš si vytisknout své placky hned z <a href="#">PDF</a>
+    
+</p>
+<h3>Vyraž na akci</h3>
+<p>Vyber si právě  jednu  placku V nebo L a vyraž s ní na  platnou akci - zatím se jedná o zápasy v improvizaci (najdeš je např.  z  <a href="http://improliga.cz/kalendar-predstaveni">výpisu</a>, leč né vše jsou tam zápasy) a o všechna představení v rámci větších improvizačních festivalů. Tím se stáváš vydřetem či liščetem.
+
+Akci můžeš ukořistit vyfocením své placky v průběhu představení +- 10 minut spolu s  budovou pořádající organizace  (1 bod), se scénou (3 body), scénou v průběhu představení (5 bodů), diváků ze scény v průběhu představení (7 bodů) 
+Pokud však zahlédneš jiného agenta jak se fotí, a vyfotíš si ho i se svou  opačnou plackou (pokud má L, ty musíš mít V), získáváš ty o 5 bodů více, než by dostal/a on/a.
+</p>
+<h3>Nahraj fotky</h3>
+<p>Nahraj své fotky na web  spolu se svým hráčským jménem a případně statusem, já ti přičtu body a fotku zveřejním, spolu s tvým jménem z dané akce - čili Pedro Liška nebo Pedro Vydra.</p>
+<h3>Speciality</h3>
+<p>Máš pocit, že si za něco zasloužíš příděl bodů navíc? Dej vědět.
+    Třeba společná fotografie s rodiči, fotka s Keithem Johnstonem,s lebkou Dela Close nebo s TJ a Davem. </p>
+
+                </div>
+                    
+                     <div>
+                         <h2>Přihlášení se</h2>
+                 <form>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Heslo:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  
+                     <button type="submit" class="btn btn-default">Přihlásit se</button><br><a href=# >Vytvořit nový účet</a> <br><a href="#">Zapomenuté heslo</a>
+</form> 
+                
+            </div>   
+                
+            </div>
+            
+        </div>
+            
+  
+    
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
