@@ -30,7 +30,7 @@
                             </thead>
                             <tbody>
                                  <tr>
-                                     <td>1.</td><td><a href="pedro.html">Pedro</a></td><td>103</td></tr>
+                                     <td>1.</td><td><a href="{{ path('user_show', {'User':'Pedro'}) }}">Pedro</a></td><td>103</td></tr>
                                  <tr>   <td>2.</td><td>Diego</td><td>96</td>
                                     </tr>
                                  <tr> <td>3.</td><td>Pedro</td><td>51</td>
@@ -61,9 +61,9 @@ To vám bylo radosti a kočkování, když se dvě děcka náhodou potkala na st
                 <div class="col-md-4">
                     <h2>Celkové skóre</h2>
                     <div class="row">
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6"><img class="img-responsive" src="{{ asset('img/vydra.png')}}"><p class="text-center" >99</p> </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6"><a href="{{ path('faction_vydry') }}"><img class="img-responsive" src="{{ asset('img/vydra.png')}}"></a><p class="text-center" >99</p> </div>
                         
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6"><img class="img-responsive" src="{{ asset('img/liska.png')}}"> <p class="text-center" >99</p></div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6"><a href="{{ path('faction_lisky') }}"><img class="img-responsive" src="{{ asset('img/liska.png')}}"></a><p class="text-center" >99</p></div>
                     </div>
                     <div>
                         <h2>Poslední úlovky</h2> 
@@ -81,7 +81,7 @@ To vám bylo radosti a kočkování, když se dvě děcka náhodou potkala na st
     <div class="item active">
       <img src="http://lorempixel.com/400/200/sports/1" alt="Chania">
       <div class="carousel-caption">
-          <h3>Agent <a href="pedro.html">Pedro </a>@ Paleťáci vs Lísky (10b)</h3>
+          <h3>Agent <a href="{{ path('user_show', {'User':'Pedro'}) }}">Pedro </a>@ Paleťáci vs Lísky (10b)</h3>
         <p>Foto ze zápasu</p>
       </div>
     </div>
@@ -136,7 +136,7 @@ To vám bylo radosti a kočkování, když se dvě děcka náhodou potkala na st
                             </thead>
                             <tbody>
                                  <tr>
-                                     <td>1.</td><td><a href="pedro.html">Pedro</a></td><td>5.1</td></tr>
+                                     <td>1.</td><td><a href="{{ path('user_show', {'User':'Pedro'}) }}">Pedro</a></td><td>5.1</td></tr>
                                  <tr>   <td>2.</td><td>Diego</td><td>4.2</td>
                                     </tr>
                                  <tr> <td>3.</td><td>wer</td><td>3.1</td>
