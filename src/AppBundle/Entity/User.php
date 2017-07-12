@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="user")
  */
 class User extends BaseUser
 {
@@ -21,6 +21,9 @@ class User extends BaseUser
     
     /** @ORM\Column(type="integer") */
     private $points;
+    
+     /** @ORM\Column(type="decimal", scale=2) */
+    private $ferocity;
 
     /** @ORM\OneToMany(targetEntity="Event", mappedBy="User") */
     private $events;

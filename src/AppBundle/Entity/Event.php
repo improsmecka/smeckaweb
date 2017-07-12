@@ -25,6 +25,9 @@ class Event
     /** @ORM\Column(type="integer") */
     private $points;
     
+    /** @ORM\Column(type="integer") */
+    private $faction;
+    
     /** @ORM\Column(type="text") */
     private $description;
     
