@@ -17,10 +17,9 @@ class Event
     protected $id;
     
      /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="event")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     @ORM\ManyToOne(targetEntity="User", inversedBy="events")
      */
-    private $user_id;
+    private $user;
     
     /** @ORM\Column(type="integer") */
     private $points;
