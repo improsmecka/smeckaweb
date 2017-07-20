@@ -39,6 +39,10 @@ class Event
     /** @ORM\Column(type="text") */
     private $action;
     
+    /** @ORM\Column(type="datetime") */
+    private $created;
+    
+    
    
     
  

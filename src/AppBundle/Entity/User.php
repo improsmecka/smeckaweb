@@ -25,7 +25,7 @@ class User extends BaseUser
     
      /** @ORM\Column(type="decimal", scale=2, nullable=true, options={ "default":0}) */
     private $ferocity;
-
+   
     /** @ORM\OneToMany(targetEntity="Event", mappedBy="user") */
     private $events;
     
@@ -38,6 +38,12 @@ class User extends BaseUser
          $this->events = new ArrayCollection();
     }
     
+    public function getFerocity(){
+        return $this->ferocity;
+    }
+    public function getPoints(){
+        return $this->points;
+    }
     
     
 }
