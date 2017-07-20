@@ -176,18 +176,18 @@ Pokud však zahlédneš jiného agenta jak se fotí, a vyfotíš si ho i se svou
                 </div>
                     
                      <div>
-                         <h2>Přihlášení se</h2>
-                 <form>
-  <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" class="form-control" id="email">
-  </div>
-  <div class="form-group">
-    <label for="pwd">Heslo:</label>
-    <input type="password" class="form-control" id="pwd">
-  </div>
-  
-                     <button type="submit" class="btn btn-default">Přihlásit se</button><br><a href=# >Vytvořit nový účet</a> <br><a href="#">Zapomenuté heslo</a>
+                         <h2>Uživatel</h2>
+                          
+                          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                
+                <a href="">
+                    Nahrát novou akci 
+                </a><br>
+            {% else %}                
+                <a href="{{ path('fos_user_security_login') }}">Přihlásit se</a><br>
+                <a href="{{ path('fos_user_registration_register') }}">Vytvořit nový účet</a><br>
+                <a href="{{ path('fos_user_resetting_request') }}">Zapomenuté heslo</a>
+            {% endif %}                                     
 </form> 
                 
             </div>   
