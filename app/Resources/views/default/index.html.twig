@@ -29,18 +29,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                   {% for user in points %}
                                  <tr>
-                                     <td>1.</td><td><a href="{{ path('user_show', {'User':'Pedro'}) }}">Pedro</a></td><td>103</td></tr>
-                                 <tr>   <td>2.</td><td>Diego</td><td>96</td>
-                                    </tr>
-                                 <tr> <td>3.</td><td>Pedro</td><td>51</td>
-                                    </tr>
-                                 <tr> <td>4.</td><td>Elvira</td><td>20</td>
-                                   </tr>
-                                 <tr>  <td>5.</td><td>Hero</td><td>1</td>
-                                    </tr>
-                                 <tr> <td>5.</td><td>Quido</td><td>1</td>
-                                </tr>                                
+                                     <td>{{loop.index0+1}}.</td><td><a href="{{ path('user_show', {'User':user.id}) }}">{{user.username}}</a></td><td>{{user.points}}</td></tr>
+                                 <tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                         
@@ -68,57 +61,12 @@ To vám bylo radosti a kočkování, když se dvě děcka náhodou potkala na st
                     <div>
                         <h2>Poslední úlovky</h2> 
                         
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="http://lorempixel.com/400/200/sports/1" alt="Chania">
-      <div class="carousel-caption">
-          <h3>Agent <a href="{{ path('user_show', {'User':'Pedro'}) }}">Pedro </a>@ Paleťáci vs Lísky (10b)</h3>
-        <p>Foto ze zápasu</p>
-      </div>
-    </div>
-
-    <div class="item">
-      <img src="http://lorempixel.com/400/200/sports/2" alt="Chicago">
-      <div class="carousel-caption">
-        <h3>Agent Quido @ Paleťáci vs Kopr (2b)</h3>
-        <p>Přistižený agent</p>
-      </div>
-    </div>
-
-    <div class="item">
-      <img src="http://lorempixel.com/400/200/sports/3" alt="New York">
-      <div class="carousel-caption">
-        <h3>Agent Benjo @ Paleťáci vs Kiš (6b)</h3>
-        <p>Přiťižený agent</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+                      {{ include('default/eventcarousel.html.twig') }}
                         
                         
                     </div>
                     <div>
-                        <h2>Poslední aktuality</h2>
-                        <p><strong>1. prosinec 2017</strong> Za adventní akce dostáváš 2*tolik bodů </p>
+                        <h2>Poslední aktuality</h2>                        
                         <p><strong>1. září 2017</strong> Spuštění hry do ostrého provozu! </p>
                         
                     </div>
@@ -135,18 +83,11 @@ To vám bylo radosti a kočkování, když se dvě děcka náhodou potkala na st
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for user in ferocity %}
                                  <tr>
-                                     <td>1.</td><td><a href="{{ path('user_show', {'User':'Pedro'}) }}">Pedro</a></td><td>5.1</td></tr>
-                                 <tr>   <td>2.</td><td>Diego</td><td>4.2</td>
-                                    </tr>
-                                 <tr> <td>3.</td><td>wer</td><td>3.1</td>
-                                    </tr>
-                                 <tr> <td>4.</td><td>Elvira</td><td>2.2</td>
-                                   </tr>
-                                 <tr>  <td>5.</td><td>Hero</td><td>1.5</td>
-                                    </tr>
-                                 <tr> <td>6.</td><td>Quido</td><td>1.4</td>
-                                </tr>                                
+                                     <td>{{loop.index0+1}}.</td><td><a href="{{ path('user_show', {'User':user.id}) }}">{{user.username}}</a></td><td>{{user.ferocity|round(2, 'floor')}}</td></tr>
+                                 <tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                         
