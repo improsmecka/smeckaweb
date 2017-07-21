@@ -31,7 +31,7 @@
                             <tbody>
                                    {% for user in points %}
                                  <tr>
-                                     <td>{{loop.index0+1}}.</td><td><a href="{{ path('user_show', {'User':user.id}) }}">{{user.username}}</a></td><td>{{user.points}}</td></tr>
+                                     <td>{{loop.index0+1}}.</td><td><a href="{{ path('user_show', {'User':user.id}) }}">{{user.publicname}}</a></td><td>{{user.points}}</td></tr>
                                  <tr>
                                 {% endfor %}
                             </tbody>
@@ -85,7 +85,7 @@ To vám bylo radosti a kočkování, když se dvě děcka náhodou potkala na st
                             <tbody>
                                 {% for user in ferocity %}
                                  <tr>
-                                     <td>{{loop.index0+1}}.</td><td><a href="{{ path('user_show', {'User':user.id}) }}">{{user.username}}</a></td><td>{{user.ferocity|round(2, 'floor')}}</td></tr>
+                                     <td>{{loop.index0+1}}.</td><td><a href="{{ path('user_show', {'User':user.id}) }}">{{user.publicname}}</a></td><td>{{user.ferocity|round(2, 'floor')}}</td></tr>
                                  <tr>
                                 {% endfor %}
                             </tbody>
