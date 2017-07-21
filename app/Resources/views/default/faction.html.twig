@@ -23,27 +23,16 @@
        
         <div>
             <h2>Výpis úspěchů</h2>
+            {% for event in events %}
             <div class="uspech">
-                 <img src="http://lorempixel.com/400/200/sports/1" alt="Chania">
+                 <img src="http://lorempixel.com/400/200/sports/{{loop.index0+1}}" alt="Chania">
       
-          <h3> Paleťáci vs Lísky (10b)</h3>
-          <p>Foto ze zápasu </p>
+                 <h3> <a >uživatel </a> : {{event.title}} ({{event.points}}b)</h3>
+            <p>{{event.action}}</p>
         
-            </div>
-            <div class="uspech">
-                 <img src="http://lorempixel.com/400/200/sports/2" alt="Chania">
-      
-          <h3> Paleťáci vs Lísky (10b)</h3>
-          <p>Foto ze zápasu</p>
-        
-            </div>
-            <div class="uspech">
-                 <img src="http://lorempixel.com/400/200/sports/3" alt="Chania">
-      
-          <h3> Paleťáci vs Lísky (10b)</h3>
-          <p>Foto ze zápasu</p>
-        
-            </div>
+            </div>    
+        {% endfor %}
+            
             
             </div>
             

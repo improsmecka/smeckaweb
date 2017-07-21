@@ -39,10 +39,23 @@ class FactionController extends Controller
      */
     private function show($FactionName, $FactionIcon){
           // replace this example code with whatever you need
+        $repository = $this->getDoctrine()->getRepository(\AppBundle\Entity\Event::class);
+
+        $query = $repository->createQueryBuilder('p')
+            ->where('p.valid =1')
+            ->andWhere('p.faction = :faction')    
+            ->setParameter("faction",$FactionIcon)    
+            ->orderBy('p.created', 'ASC')
+            ->setMaxResults(30)
+            ->getQuery();
+        $events = $query->getResult();
+        
+        
         return $this->render('default/faction.html.twig', [
             'Name'=>$FactionName,
             'Icon'=>$FactionIcon,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'events'=>$events,
         ]);
         
         
