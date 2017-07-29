@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection	as ArrayCollection;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Table(name="smecka_user")
  */
 class User extends BaseUser
 {
