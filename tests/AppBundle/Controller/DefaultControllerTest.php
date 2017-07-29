@@ -14,6 +14,10 @@ class DefaultControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertContains('Improsmečka', $crawler->filter('.container h1')->text());
-        $this->assertContains('Uživatel', $crawler->filter('.container h2')->text());
+         $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("Uživatel")')->count()
+        );
+        //$this->assertContains('Uživatel', $crawler->filter('.container h2')->text());
     }
 }
