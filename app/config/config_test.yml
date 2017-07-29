@@ -17,11 +17,8 @@ swiftmailer:
 #based on https://vincent.composieux.fr/article/test-your-doctrine-repository-using-a-sqlite-database
 doctrine:
     dbal:
-        default_connection: default
-        connections:
-            default:
-                driver:  pdo_sqlite
-                user:    test
-                path:    %kernel.root_dir%/sqlite.db.cache
-                #memory: true
-                charset: utf8
+        driver:  pdo_sqlite
+        user:    test
+        path:    %kernel.root_dir%/sqlite.db.cache
+        #memory: true
+        charset: utf8
