@@ -23,4 +23,8 @@ monolog:
 
 doctrine:
     dbal:
-        url: "%env(DATABASE_URL)%"
+        driver:  pdo_sqlite
+        user:    test
+        path:    %kernel.root_dir%/sqlite.db.cache
+        #memory: true
+        charset: utf8
