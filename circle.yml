@@ -1,9 +1,8 @@
 machine:
     php:
         version: 7.1.3
-    services:
-        -mysql
     environment:
+        SYMFONY_ENV: prod
         CIRCLE_ENV: test
         DATABASE_URL: postgresql://ubuntu:@127.0.0.1:5432/circle_test
 
