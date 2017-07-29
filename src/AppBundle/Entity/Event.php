@@ -35,7 +35,7 @@ class Event
     /** @ORM\Column(type="text") */
     private $description;
     
-    /** @ORM\Column(type="boolean") */
+    /** @ORM\Column(type="integer") */
     private $valid;
     
     /** @ORM\Column(type="text") */
