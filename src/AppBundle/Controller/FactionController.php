@@ -37,14 +37,14 @@ class FactionController extends Controller
      /**
      * Render faction
      */
-    private function show($FactionName, $FactionIcon){
+    private function show($FactionName, $FactionId){
           // replace this example code with whatever you need
         $repository = $this->getDoctrine()->getRepository(\AppBundle\Entity\Event::class);
 
         $query = $repository->createQueryBuilder('p')
             ->where('p.valid =1')
             ->andWhere('p.faction = :faction')    
-            ->setParameter("faction",$FactionIcon)    
+            ->setParameter("faction",$FactionId)    
             ->orderBy('p.created', 'ASC')
             ->setMaxResults(30)
             ->getQuery();
@@ -53,7 +53,7 @@ class FactionController extends Controller
         
         return $this->render('default/faction.html.twig', [
             'Name'=>$FactionName,
-            'Icon'=>$FactionIcon,
+            'Icon'=>$FactionId,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
             'events'=>$events,
         ]);
@@ -61,10 +61,5 @@ class FactionController extends Controller
         
     }
     
-     /**
-     * @Route("/faction", name="faction")
-     */
-    public function showAction(){
-      return $this->show("Liškovydřátka", 3);                  
-    } 
+  
 }

@@ -27,7 +27,7 @@
             <div class="uspech">
                  <img src="http://lorempixel.com/400/200/sports/{{loop.index0+1}}" alt="Chania">
       
-                 <h3> <a >uživatel </a> : {{event.title}} ({{event.points}}b)</h3>
+                 <h3> <a href="{{ path('user_show', {'User':event.user.id}) }}">{{event.user.publicname}} </a> : {{event.title}} ({{event.points}}b)</h3>
             <p>{{event.action}}</p>
         
             </div>    
