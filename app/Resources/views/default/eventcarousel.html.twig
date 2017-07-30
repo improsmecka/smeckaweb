@@ -16,8 +16,9 @@
         <div class="item {%if loop.first %}active{%endif %}">
           <img src="http://lorempixel.com/400/200/sports/{{loop.index0}}" >
           <div class="carousel-caption ">
-              <h3>Agent <a >uživatel </a> : {{event.title}} ({{event.points}}b)</h3>
+              <h3><a href="{{ path('user_show', {'User':event.user.id}) }}" >{{event.user.publicname}}</a> : {{event.title}} ({{event.points}}b)</h3>
             <p>{{event.action}}</p>
+            <p>{{event.description}}</p>
           </div>
         </div>
     {% endfor %}       
