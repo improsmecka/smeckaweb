@@ -17,8 +17,8 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository(\AppBundle\Entity\Event::class);
 
         $query = $repository->createQueryBuilder('p')
-            ->where('p.valid =1')
-            ->orderBy('p.created', 'ASC')
+            ->where('p.valid = 1')
+            ->orderBy('p.created', 'desc')
             ->setMaxResults( 3 )
             ->getQuery();
         $events = $query->getResult();
