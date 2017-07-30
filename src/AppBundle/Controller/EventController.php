@@ -36,6 +36,9 @@ class EventController extends Controller
             $em->flush();
             
             
+            //@todo send mail
+            $this->get('security.token_storage')->getToken()->getUser()->recalculate();
+            
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
