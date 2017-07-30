@@ -29,14 +29,14 @@ class DefaultController extends Controller
         
         
         $query2 = $repository2->createQueryBuilder('u')
-            //->where('u.ferocity >0')
+            ->where('u.ferocity >0')
             ->orderBy('u.ferocity', 'DESC')
             ->setMaxResults( 10 )
             ->getQuery();
         $ferocity = $query2->getResult();
         
         $query3 = $repository2->createQueryBuilder('v')
-            //->where('v.points >0')
+            ->where('v.points >0')
             ->orderBy('v.points', 'DESC')
             ->setMaxResults( 10 )
             ->getQuery();
