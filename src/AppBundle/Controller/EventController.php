@@ -35,6 +35,14 @@ class EventController extends Controller
             $em->persist($data);
             $em->flush();
             
+            // todo, ale zatím jsou valid vždy, tak musím
+            $u=$this->get('security.token_storage')->getToken()->getUser();
+            $u->recalculate();
+            $em->persist($u);
+            $em->flush();
+            
+                
+            
             
             //@todo send mail
             $this->get('security.token_storage')->getToken()->getUser()->recalculate();
