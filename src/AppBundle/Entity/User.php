@@ -6,7 +6,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection	as ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use DateTime;
 /**
  * @ORM\Entity
  * @ORM\Table(name="smecka_user")
@@ -23,7 +23,7 @@ class User extends BaseUser
     /** @ORM\Column(type="integer" , nullable=true, options={ "default":0}) */
     private $points;
     
-     /** @ORM\Column(type="decimal", scale=2, nullable=true, options={ "default":0}) */
+     /** @ORM\Column(type="decimal", scale=3, nullable=true, options={ "default":0}) */
     private $ferocity;
     
     /** @ORM\Column(type="string",  nullable=true) */    
@@ -57,7 +57,36 @@ class User extends BaseUser
         $this->publicName=$publicName;        
     }
     
+    private $faction_points=null;
     
+    /*Calculate ferocoity, points and faction_points*/
+    public function recalculate(){
+        $this->points=0;
+        $this->ferocity=0;
+        $this->faction_points=array(1=>0,2=>0,3=>0);
+        
+        foreach($this->events as $Event){
+            if($Event->getValid()==1 ){
+                $this->points+=$Event->getPoints();
+                if(!isset($this->faction_points[$Event->getFaction()])) $this->faction_points[$Event->getFaction()]=0;
+                $this->faction_points[$Event->getFaction()]+=$Event->getPoints();
+                
+                //ferocity calculation
+                $datetime1 = new DateTime();
+                $datetime2 = $Event->getCreated();
+                $interval =$datetime1->diff($datetime2);
+                $diff=intval( $interval->format('%d%')); //days                
+                $this->ferocity+= ($Event->getPoints()*pow(0.9,$diff));
+            }            
+        }            
+    }
+    
+    function getFactionPoints(){
+        if(!is_array($this->faction_points)){
+            $this->recalculate();
+        }
+        return $this->faction_points;        
+    }
     
    
     /** @ORM\OneToMany(targetEntity="Event", mappedBy="user") */
