@@ -126,9 +126,8 @@ Pokud však zahlédneš jiného agenta jak se fotí, a vyfotíš si ho i se svou
                          
                           {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 
-                <a href="">
-                    Nahrát novou akci 
-                </a><br>
+                <a href="{{ path('action_submission') }}">Nahrát novou akci</a><br>
+                <a href="{{ path('fos_user_security_logout') }}">Odhlásit se</a><br>
             {% else %}                
                 <a href="{{ path('fos_user_security_login') }}">Přihlásit se</a><br>
                 <a href="{{ path('fos_user_registration_register') }}">Vytvořit nový účet</a><br>

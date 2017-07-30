@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -25,39 +26,116 @@ class Event
     
     
     /** @ORM\Column(type="integer") */
-    private $points;
+    private $points = 0;
     
-    public function getPoints() {return $this->points;}
+ 
+    /** @ORM\Column(type="integer") */
+    private $faction=3;
+    
+    /** @ORM\Column(type="text") */
+    private $description="";
+    
     
     /** @ORM\Column(type="integer") */
-    private $faction;
+    private $valid=0;
     
     /** @ORM\Column(type="text") */
-    private $description;
-    
-    /** @ORM\Column(type="integer") */
-    private $valid;
+    private $title="";
+   
     
     /** @ORM\Column(type="text") */
-    private $title;
-    public function getTitle() {return $this->title;}
+    private $action="";
+
     
-    /** @ORM\Column(type="text") */
-    private $action;
-    public function getAction() {return $this->action;}
-    
-    /** @ORM\Column(type="datetime") */
-    private $created;
+    /** @ORM\Column(type="datetime", nullable=true) */
+    private $created=null;
     
     
+    public function getId(){
+            return $this->id;
+    }
+
+    public function setId($id){
+            $this->id = $id;
+    }
+
+    public function getUser(){
+            return $this->user;
+    }
+
+    public function setUser($user){
+            $this->user = $user;
+    }
+
+    public function getPoints(){
+            return $this->points;
+    }
+
+    public function setPoints($points){
+            $this->points = $points;
+    }
+
+    public function getFaction(){
+            return $this->faction;
+    }
+
+    public function setFaction($faction){
+            $this->faction = $faction;
+    }
+
+    public function getDescription(){
+            return $this->description;
+    }
+
+    public function setDescription($description){
+            $this->description = $description;
+    }
+
+    public function getValid(){
+            return $this->valid;
+    }
+
+    public function setValid($valid){
+            $this->valid = $valid;
+    }
+
+    public function getTitle(){
+            return $this->title;
+    }
+
+    public function setTitle($title){
+            $this->title = $title;
+    }
+
+    public function getAction(){
+            return $this->action;
+    }
+
+    public function setAction($action){
+            $this->action = $action;
+    }
+
+    public function getCreated(){
+            return $this->created;
+    }
+
+    public function setCreated($created){
+            $this->created = $created;
+    }
+
+
    
     
  
     
     public function __construct()
     {
-        parent::__construct();
-        // your own logic
+        $this->created = new DateTime();
+        //todo 
+        $this->valid=1;
+        $this->points= rand(1,10);
+        
+       
     }
     
     
