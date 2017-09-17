@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {     
@@ -29,5 +30,25 @@ class UserController extends Controller
 		return $this->render('default/user.html.twig',["user"=>$data
                         //,'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR
                         ] );
-    }        
+    }    
+
+    /**
+     * @Route("/cron" )
+     * 
+     */
+    public function Cron(Request $Request){
+        
+        $repository = $this->getDoctrine()->getRepository(\AppBundle\Entity\User::class);
+        $em = $this->getDoctrine()->getManager();
+              
+        $users = $repository->findAll();
+        foreach($users as $U){
+            $U->recalculate();
+            $em->persist($U);
+        }
+        $em->flush();
+        return new Response("OK");
+        
+        
+    }    
 }
