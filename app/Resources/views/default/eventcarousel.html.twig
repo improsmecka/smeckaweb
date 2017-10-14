@@ -14,7 +14,7 @@
   <div class="carousel-inner">
     {% for event in events %}
         <div class="item {%if loop.first %}active{%endif %}">
-          <img src="http://lorempixel.com/400/200/sports/{{loop.index0}}" >
+          <img src="{{ asset('images/events/' ~ event.image) }} "  >
           <div class="carousel-caption ">
               <h3><a href="{{ path('user_show', {'User':event.user.id}) }}" >{{event.user.publicname}}</a> : {{event.title}} ({{event.points}}b)</h3>
             <p>{{event.action}}</p>

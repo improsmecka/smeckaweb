@@ -109,4 +109,56 @@ class User extends BaseUser
     }
     
     
+
+    /**
+     * Set points
+     *
+     * @param integer $points
+     *
+     * @return User
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
+
+        return $this;
+    }
+
+    /**
+     * Set ferocity
+     *
+     * @param string $ferocity
+     *
+     * @return User
+     */
+    public function setFerocity($ferocity)
+    {
+        $this->ferocity = $ferocity;
+
+        return $this;
+    }
+
+    /**
+     * Add event
+     *
+     * @param \AppBundle\Entity\Event $event
+     *
+     * @return User
+     */
+    public function addEvent(\AppBundle\Entity\Event $event)
+    {
+        $this->events[] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Remove event
+     *
+     * @param \AppBundle\Entity\Event $event
+     */
+    public function removeEvent(\AppBundle\Entity\Event $event)
+    {
+        $this->events->removeElement($event);
+    }
 }

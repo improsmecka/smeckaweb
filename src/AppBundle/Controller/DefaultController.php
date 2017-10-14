@@ -19,7 +19,7 @@ class DefaultController extends Controller
         $query = $repository->createQueryBuilder('p')
             ->where('p.valid = 1')
             ->orderBy('p.created', 'desc')
-            ->setMaxResults( 3 )
+            ->setMaxResults( 4 )
             ->getQuery();
         $events = $query->getResult();
         
@@ -42,6 +42,20 @@ class DefaultController extends Controller
             ->getQuery();
         $points = $query3->getResult();
         
+        $factions=array(1=>10,2=>10,3=>10);        
+        $query4 = $repository->createQueryBuilder('alle')
+            ->where('alle.valid >0')            
+            ->setMaxResults( 2000000 )
+            ->getQuery();
+        $events2 = $query->getResult();
+        foreach ($events2 as $e ){
+            $factions[ $e->getFaction()]+=$e->getPoints();            
+        }
+            
+        
+        
+        
+        
         
 
         // replace this example code with whatever you need
@@ -50,6 +64,7 @@ class DefaultController extends Controller
             'events'=>$events,
             'ferocity'=>$ferocity,
             'points'=>$points,
+            'factions'=>$factions,
             
         ]);
     }

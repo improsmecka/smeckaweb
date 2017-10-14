@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class FactionController extends Controller
 {
     
-     /**
+    /**
     *  Render vydry  
      * @Route("/vydry", name="faction_vydry")
      */
