@@ -45,6 +45,17 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        
+# Vich
+vich_uploader:
+    db_driver: orm
+    mappings:
+        event_image:
+            uri_prefix:         /images/events
+            upload_destination: '%kernel.root_dir%/../web/images/events'
+            namer:
+                service: vich_uploader.namer_uniqid
+    
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -64,3 +75,17 @@ fos_user:
     registration:
         form:
             type: AppBundle\Form\RegistrationType
+
+easy_admin:
+    entities:        
+        Event:
+            class: AppBundle\Entity\Event
+            list:
+                fields: ['user', 'faction', 'description', 'valid', 'points', 'image']
+                   #- { property: 'image', type: 'image', base_path: '%kernel.root_dir%/../web/images/events' }
+            #form:
+            #    fields:
+            #        - { property: 'imageFile', type: 'vich_image' }
+                   
+        User:
+            class: AppBundle\Entity\User
