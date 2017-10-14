@@ -3,11 +3,15 @@ namespace AppBundle\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="smecka_event")
+ * @Vich\Uploadable
  */
 class Event  
 {
@@ -36,8 +40,8 @@ class Event
     private $description="";
     
     
-    /** @ORM\Column(type="integer") */
-    private $valid=0;
+    /** @ORM\Column(type="boolean") */
+    private $valid=false;
     
     /** @ORM\Column(type="text") */
     private $title="";
@@ -57,6 +61,7 @@ class Event
 
     public function setId($id){
             $this->id = $id;
+            return $this;
     }
 
     public function getUser(){
@@ -65,6 +70,7 @@ class Event
 
     public function setUser($user){
             $this->user = $user;
+            return $this;
     }
 
     public function getPoints(){
@@ -73,6 +79,7 @@ class Event
 
     public function setPoints($points){
             $this->points = $points;
+            return $this;
     }
 
     public function getFaction(){
@@ -81,6 +88,7 @@ class Event
 
     public function setFaction($faction){
             $this->faction = $faction;
+            return $this;
     }
 
     public function getDescription(){
@@ -89,6 +97,7 @@ class Event
 
     public function setDescription($description){
             $this->description = $description;
+            return $this;
     }
 
     public function getValid(){
@@ -97,6 +106,7 @@ class Event
 
     public function setValid($valid){
             $this->valid = $valid;
+            return $this;
     }
 
     public function getTitle(){
@@ -105,6 +115,7 @@ class Event
 
     public function setTitle($title){
             $this->title = $title;
+            return $this;
     }
 
     public function getAction(){
@@ -113,31 +124,75 @@ class Event
 
     public function setAction($action){
             $this->action = $action;
+            return $this;
     }
 
     public function getCreated(){
             return $this->created;
+         
     }
 
     public function setCreated($created){
             $this->created = $created;
+            return $this;
     }
 
 
-   
-    
- 
-    
     public function __construct()
     {
         $this->created = new DateTime();
         //todo 
-        $this->valid=1;
-        $this->points= rand(1,10);
-        
-       
+        $this->valid=true;
+        $this->points= rand(1,10);       
     }
     
     
-    
+/**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="event_image", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    // ...
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }     
+   
 }

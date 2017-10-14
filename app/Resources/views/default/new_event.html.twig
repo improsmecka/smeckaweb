@@ -1,10 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}Nová událost|Improsmečka{% endblock %}
 
-
+{% block body %}
+   
+     <div class="container">
+        <div class="row">
+            <div class="col-sm-1 col-xs-1 col-md-5 col-lg-4">
+                <a href="{{ path('homepage') }}"><img class="img-responsive logo" src="{{ asset('img/logo.png')}}"></a>
+                
+            </div>
+                </div>
+<div class="row">     
+    <h1>Nová událost</h1>
+            <div class="col-sm-11 col-xs-11 col-md-7 col-lg-8">
 {{ form_start(form) }}
     {{ form_row(form.faction) }}
     {{ form_row(form.description) }}
     {{ form_row(form.action) }}
     {{ form_row(form.title) }}
-
+    {{ form_row(form.imageFile) }}
+      
+    
     <button type="submit">Přidat</button>
+    <br>
+    Po přidání musí být příspěvek schválen administrátorem. Děkujeme, že to chápete.
+    
 {{ form_end(form) }}
+
+    </div>
+        
+        
+        </div>           
+        </div>  
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

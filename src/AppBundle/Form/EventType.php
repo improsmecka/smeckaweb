@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+
 
 class EventType extends AbstractType
 {
@@ -14,13 +16,21 @@ class EventType extends AbstractType
     {
         
   
-        $builder
-            //->add('email', EmailType::class)
+        $builder            
             ->add('title', TextType::class)
             ->add('description', TextType::class)
             ->add('action', TextType::class)
             ->add('faction', TextType::class)
+            //->add('imageFile', FileType::class, array('label' => 'Image'))
+         
         ;
+        
+        
+        $builder->add('imageFile', VichFileType::class, [
+            'required' => true,
+            'allow_delete' => false, 
+           
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
