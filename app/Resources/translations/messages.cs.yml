@@ -1,0 +1,46 @@
+Improvgang: Improsmečka
+
+#faction
+Otters: Vydry
+Foxes: Lišky
+Otterfoxes: Liškovydřátka
+
+#event
+Event: Událost
+Faction: Skupina
+User: Uživatel
+Description: Popis
+Points: Body
+Valid: Platné
+Action: Akce
+Image file: Obrázek
+Title: Nadpis
+Image: Obrázek
+Created: Vytvořeno
+Updated at: Aktualizováno
+
+
+#user
+Username: Uživatelské jméno
+Username canonical: Kanonické uživatelské jméno
+Email: Email
+Email canonical: Kanonický email
+Public name: Veřejné jméno
+Confirmation token: Konfirmační token
+Enabled: Povolené
+Last login: Poslední přihlášení
+Salt: Sůl
+Ferocity: Dravost
+Password: Heslo
+Roles: Role
+Events: Události
+Password requested at: Heslo vyžádáno v
+
+
+#new event
+New event: Nová událost
+All submissions must be approved by admin.: Po přidání musí být příspěvek schválen administrátorem.
+Thanks for your understanding.: Děkujeme, že to chápete.
+Add: Přidat
+    
+ 
