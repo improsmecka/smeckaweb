@@ -1,0 +1,9 @@
+.fos_user_registration_register label{
+    min-width:9em;
+}
+.fos_user_registration_register div{
+    margin-top:4px;
+}
+
+
+#new_event_form label {min-width:9em;}
