@@ -106,6 +106,7 @@ class Event
 
     public function setValid($valid){
             $this->valid = $valid;
+            $this->getUser()->recalculate();            
             return $this;
     }
 
@@ -140,10 +141,7 @@ class Event
 
     public function __construct()
     {
-        $this->created = new DateTime();
-        //todo 
-        $this->valid=true;
-        $this->points= rand(1,10);       
+        $this->created = new DateTime();     
     }
     
     
@@ -219,4 +217,9 @@ class Event
     {
         return $this->updatedAt;
     }
+    
+    public function __toString(){
+        return $this->title;
+    }
+    
 }
