@@ -34,7 +34,7 @@ class Event
     
  
     /** @ORM\Column(type="integer") */
-    private $faction=3;
+    private $faction=1;
     
     /** @ORM\Column(type="text") */
     private $description="";
@@ -195,4 +195,28 @@ class Event
         return $this->image;
     }     
    
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Event
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
 }

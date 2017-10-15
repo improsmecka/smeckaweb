@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
 
@@ -20,11 +21,19 @@ class EventType extends AbstractType
             ->add('title', TextType::class)
             ->add('description', TextType::class)
             ->add('action', TextType::class)
-            ->add('faction', TextType::class)
-            //->add('imageFile', FileType::class, array('label' => 'Image'))
+            
+            
          
         ;
         
+        
+        $builder->add('faction', ChoiceType::class, array(
+    'choices'  => array(
+        'Vydry' => 1,
+        'Lišky' => 2,
+        'Liškovydřátka' => 3,
+    ),
+));
         
         $builder->add('imageFile', VichFileType::class, [
             'required' => true,
