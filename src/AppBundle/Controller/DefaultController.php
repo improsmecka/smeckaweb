@@ -22,12 +22,9 @@ class DefaultController extends Controller
             ->setMaxResults( 4 )
             ->getQuery();
         $events = $query->getResult();
-        
-        
+                
         $repository2 = $this->getDoctrine()->getRepository(\AppBundle\Entity\User::class);
-
-        
-        
+             
         $query2 = $repository2->createQueryBuilder('u')
             ->where('u.ferocity >0')
             ->orderBy('u.ferocity', 'DESC')
@@ -42,7 +39,7 @@ class DefaultController extends Controller
             ->getQuery();
         $points = $query3->getResult();
         
-        $factions=array(1=>10,2=>10,3=>10);        
+        $factions=array(1=>0,2=>0,3=>0);        
         $query4 = $repository->createQueryBuilder('alle')
             ->where('alle.valid >0')            
             ->setMaxResults( 2000000 )
@@ -53,12 +50,6 @@ class DefaultController extends Controller
         }
             
         
-        
-        
-        
-        
-
-        // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
             'events'=>$events,
