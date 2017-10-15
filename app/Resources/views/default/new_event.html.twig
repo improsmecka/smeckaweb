@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Nová událost|Improsmečka{% endblock %}
+{% block title %}{% trans %}New event{% endtrans %}|{% trans %}Improvgang{% endtrans %}{% endblock %}
 
 {% block body %}
    
@@ -9,10 +9,10 @@
                 <a href="{{ path('homepage') }}"><img class="img-responsive logo" src="{{ asset('img/logo.png')}}"></a>
                 
             </div>
-                </div>
+            </div>
 <div class="row">     
-    <h1>Nová událost</h1>
-            <div class="col-sm-11 col-xs-11 col-md-7 col-lg-8">
+    <h1>{% trans %}New event{% endtrans %}</h1>
+            <div class="col-sm-11 col-xs-11 col-md-7 col-lg-8" id="new_event_form">
 {{ form_start(form) }}
     {{ form_row(form.faction) }}
     {{ form_row(form.description) }}
@@ -20,18 +20,15 @@
     {{ form_row(form.title) }}
     {{ form_row(form.imageFile) }}
       
-    
-    <button type="submit">Přidat</button>
-    <br>
-    Po přidání musí být příspěvek schválen administrátorem. Děkujeme, že to chápete.
-    
+        <br>    <br>
+        <label>&nbsp;</label><button type="submit">{% trans %}Add{% endtrans %}</button>
+    <br><br><br>
+    {% trans %}All submissions must be approved by admin.{% endtrans %}<br>{% trans %}Thanks for your understanding.{% endtrans %}
 {{ form_end(form) }}
 
-    </div>
-        
-        
-        </div>           
-        </div>  
+    </div>       
+    </div>           
+    </div>  
 {% endblock %}
 
 {% block stylesheets %}

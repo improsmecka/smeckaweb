@@ -59,11 +59,8 @@ To vám bylo radosti a kočkování, když se dvě děcka náhodou potkala na st
                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6"><a href="{{ path('faction_lisky') }}"><img class="img-responsive" src="{{ asset('img/liska.png')}}"></a><p class="text-center" >{{factions[2]}}</p></div>
                     </div>
                     <div>
-                        <h2>Poslední úlovky</h2> 
-                        
+                        <h2>Poslední úlovky</h2>                         
                       {{ include('default/eventcarousel.html.twig') }}
-                        
-                        
                     </div>
                     <div>
                         <h2>Poslední aktuality</h2>                        
@@ -78,8 +75,7 @@ To vám bylo radosti a kočkování, když se dvě děcka náhodou potkala na st
                       <table class=table>
                             <thead>
                                 <tr>
-                                    <td>Pořadí</td><td>Jméno</td><td>Dravost</td>
-                                    
+                                    <td>Pořadí</td><td>Jméno</td><td>Dravost</td>                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -124,8 +120,7 @@ Pokud však zahlédneš jiného agenta jak se fotí, a vyfotíš si ho i se svou
                      <div>
                          <h2>Uživatel</h2>
                          
-                          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}           
                 <a href="{{ path('action_submission') }}">Nahrát novou akci</a><br>
                 <a href="{{ path('fos_user_security_logout') }}">Odhlásit se</a><br>
             {% else %}                

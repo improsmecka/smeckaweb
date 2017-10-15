@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-
+         <link href="{{ asset('css/smecka.css') }}" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -16,7 +16,22 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <div id="user_panel_lite">
+            
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}               
+                <a href="{{ path('action_submission') }}">Nahrát novou akci</a><br>
+                {% if is_granted("ROLE_ADMIN") %}<a href="{{ path('admin') }}">Admin</a><br>{% endif %}
+                <a href="{{ path('fos_user_security_logout') }}">Odhlásit se</a><br>
+            {% else %}                
+                <a href="{{ path('fos_user_security_login') }}">Přihlásit se</a><br>
+                <a href="{{ path('fos_user_registration_register') }}">Vytvořit nový účet</a><br>
+                <a href="{{ path('fos_user_resetting_request') }}">Zapomenuté heslo</a>
+            {% endif %}                                     
+
+            
+        </div>    
         {% block body %}{% endblock %}
+        <br><br>
          <div id="footer">
       <div class="container">
           <p class="muted credit"><a href="{{ path('homepage') }}">Improsmečka</a>, podporují Marie Lišková a Antonín Vydra. <br>Kontakt: <a href="mailto:improsmecka@gmail.com">improsmecka@gmail.com</a> či <a href="https://fb.me/improsmecka">FB: Improsmečka</a><br> Vývoj: <a href="https://github.com/improsmecka/smeckaweb">github.com/improsmecka/smeckaweb</a><br>Copyright Improsmečka 2017 </p>
