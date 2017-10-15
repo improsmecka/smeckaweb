@@ -109,6 +109,7 @@ Akci můžeš ukořistit vyfocením:
     <li>diváků ze scény v průběhu představení (7 bodů) </li>
 </ul>
 Pokud však zahlédneš jiného agenta jak se fotí, a vyfotíš si ho i se svou  opačnou plackou (pokud má L, ty musíš mít V), získáváš ty o 5 bodů více, než by dostal/a on/a.
+Akci může ukořistit jen jeden agent, ten s nejvyšším bodovým skóre.
 </p>
 <h3>Nahraj fotky</h3>
 <p>Nahraj své fotky na tento web spolu se svým hráčským jménem a případně statusem, po schválení bude tvá akce zveřejněna tady a na Facebooku, a budou ti přičteny body.</p>
@@ -127,9 +128,7 @@ Pokud však zahlédneš jiného agenta jak se fotí, a vyfotíš si ho i se svou
                 <a href="{{ path('fos_user_security_login') }}">Přihlásit se</a><br>
                 <a href="{{ path('fos_user_registration_register') }}">Vytvořit nový účet</a><br>
                 <a href="{{ path('fos_user_resetting_request') }}">Zapomenuté heslo</a>
-            {% endif %}                                     
-
-                
+            {% endif %}                                                    
             </div>   
                 
             </div>
