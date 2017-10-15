@@ -14,7 +14,7 @@ class EventController extends Controller
    /**
      * @Route("/new_action", name="action_submission")
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, \Swift_Mailer $mailer)
     {
         // 1) build the form
         $event = new Event();
@@ -32,27 +32,26 @@ class EventController extends Controller
             
             $data = $form->getData();
             
-                       
-            
-            
-            
+
                         
             // 4) save 
             $em = $this->getDoctrine()->getManager();
             $em->persist($data);
             $em->flush();
             
-            // todo, ale zatím jsou valid vždy, tak musím
-            $u=$this->get('security.token_storage')->getToken()->getUser();
-            $u->recalculate();
-            $em->persist($u);
-            $em->flush();
-            
-                
+                     
+             
             
             
-            //@todo send mail
-            $this->get('security.token_storage')->getToken()->getUser()->recalculate();
+            $message = (new \Swift_Message('New event'))
+        ->setFrom('no-reply@improsmecka.cz')
+        ->setTo('improsmecka@gmail.com')
+        ->setBody('New event in the database','text/plain');
+         $mailer->send($message);    
+      
+            
+            
+            
             
       
             return $this->redirectToRoute('homepage');
