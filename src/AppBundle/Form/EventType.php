@@ -21,17 +21,14 @@ class EventType extends AbstractType
             ->add('title', TextType::class)
             ->add('description', TextType::class)
             ->add('action', TextType::class)
-            
-            
-         
         ;
         
         
         $builder->add('faction', ChoiceType::class, array(
-    'choices'  => array(
-        'Vydry' => 1,
-        'Lišky' => 2,
-        'Liškovydřátka' => 3,
+        'choices'  => array(
+        'Otters' => 1,
+        'Foxes' => 2,
+        'Otterfoxes' => 3,
     ),
 ));
         
