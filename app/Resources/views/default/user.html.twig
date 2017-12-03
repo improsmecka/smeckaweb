@@ -28,7 +28,7 @@
             <h2>Výpis úspěchů</h2>
                {% for event in user.events %}
             <div class="uspech">
-                 <img src="{{ asset('images/events/' ~ event.image) }}" alt="{{event.title}}" >
+                 <img class="img-responsive" src="{{ asset('images/events/' ~ event.image) }}" alt="{{event.title}}" >
       
                  <h3>{{event.title}} ({{event.points}}b)</h3>
             <p>{{event.action}}</p>
